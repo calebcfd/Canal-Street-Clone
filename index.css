@@ -1,0 +1,741 @@
+
+:root {
+    --blue: #5ea3ec;
+    --red: #f64444;
+    --yellow: #ffb400;
+}
+
+body {
+    margin: 0;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+body::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+
+#main {
+    overflow-y: visible;
+}
+
+::selection {
+    background-color: black;
+    color: white;
+}
+
+
+
+
+/* Start of Font Declarations */
+
+
+
+
+@font-face {
+    font-family: apercuRegular;
+    src: url('fonts/Apercu_Regular.otf');
+}
+
+@font-face {
+    font-family: apercuMono;
+    src: url('fonts/apercu-mono.ttf');
+}
+
+@font-face {
+    font-family: oggRoman;
+    src: url('fonts/Ogg-Roman.otf');
+}
+
+h1 {
+    font-family: oggRoman;
+}
+
+p {
+    font-family: apercuMono;
+}
+
+
+
+
+/* End of Font Declarations */
+/* Start of Animations */
+
+
+
+
+@keyframes lintAnimation{
+    0% {
+        background-position-x: 0px, 2px;
+    }
+    100% {
+        background-position-x: 17px, 19px;
+    }
+}
+
+@keyframes rowBorder{
+    0% {
+        background-position-x: 0px, 0px, 0px, 0px;
+    }
+    100% {
+        background-position-x: 24px, 24px, -24px, -24px;
+    }
+}
+
+@keyframes dashBorder {
+    0% {
+        background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    }
+    100% {
+        background-position: 24px 0px, 100% 24px, calc(100% - 24px) 100%, 0px calc(100% - 24px);
+    }
+}
+
+
+
+
+/* End of Animations */
+/* Start of Flex Containers */
+
+
+
+
+.flexWrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: calc(100% - 180px)
+}
+
+.flexColumn {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.soloCenter {
+    box-sizing: border-box;
+    width: calc(94.5% - 180px);
+    margin: 2.5%;
+}
+
+
+
+
+/* End of Flex Containers */
+/* Start of Sidebar */
+
+
+
+
+.logo {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 60px;
+    height: 60px;
+    margin: 60px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .5s ease-out .5s;
+}
+
+#sidebar {
+    position: fixed;
+    width: 180px;
+    height: 100vh;
+    right: 0px;
+    top: 0px;
+}
+
+.relContainer {
+    position: relative;
+    width: 180px;
+}
+
+.slidePannel {
+    position: relative;
+    width: 60px;
+    height: 100vh;
+    transform: translateY(-100vh);
+    cursor: pointer;
+}
+
+.topTag {
+    position: absolute;
+    top: 54px;
+    font-weight: 500;
+}
+
+.midTag {
+    transform: rotate(90deg);
+    font-family: apercuMono;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+#food {
+    background-color: var(--blue);
+    transition: transform .5s ease-out 1.5s;
+}
+
+#retail {
+    background-color: var(--red);
+    transition: transform .5s ease-out 1.25s; 
+}
+
+#community {
+    background-color: var(--yellow);
+    transition: transform .5s ease-out 1s; 
+}
+
+
+
+
+/* End of Sidebar */
+/* Start of Title */
+
+
+
+
+.title {
+    font-size: 4.7em;
+    line-height: 85px;
+    max-width: 1080px;
+    padding: 200px 60px 120px 60px;
+    margin: 55px 0 0 0;
+    opacity: 0;
+    transition: opacity 2s 3s;
+}
+
+.linting {
+    background-image:
+        repeating-linear-gradient(-45deg, var(--yellow), var(--yellow) 1.5px,transparent 0,transparent 13px),
+        repeating-linear-gradient(45deg, var(--yellow), var(--yellow) 1px,transparent 0,transparent 11px);
+    background-position: 0 103%, 2px 103%;
+    background-size: 17px 10px;
+    background-repeat: repeat-x;
+    animation: lintAnimation .8s linear infinite;
+
+}
+
+.imax {
+    height: 1100px;
+    width: calc(100% - 180px);
+    object-fit:cover;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+
+
+
+/* End of Title */
+/* Start of About */
+
+
+
+
+.jumboTitle {
+    font-size: 7em;
+    padding: 120px 60px 60px 60px;
+    max-width: 650px;
+    margin: 0;
+}
+
+#aboutContainer {
+    opacity: 0;
+    transition: opacity 1s ease-out;
+    align-items: flex-start;
+}
+
+.aboutTile {
+    width: 28%;
+}
+
+.aboutTile img {
+    width: 100%;
+}
+
+.aboutTile p {
+    font-size: .9em;
+}
+
+
+
+
+/* End of About */
+/* Start Events */
+
+
+
+
+#events {
+    margin: 60px;
+}
+
+.rowBorder {
+    background-image: 
+        linear-gradient(90deg, black 50%, transparent 50%),
+        linear-gradient(90deg, black 50%, transparent 50%),
+        linear-gradient(90deg, black 50%, transparent 50%),
+        linear-gradient(90deg, black 50%, transparent 50%);
+    background-size:24px 1px, 24px 1px, 24px 1px, 24px 1px;
+    background-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
+    background-position: 0 0, 0 14px, 0 100%, 0 calc(100% - 14px);
+    animation: rowBorder .8s linear infinite;
+}
+
+.marketTitle {
+    justify-content: space-around;
+}
+
+.marketTitle h1{
+    font-size: 100px;
+    line-height: 100px;
+}
+
+.marketTitle svg {
+    width: 120px;
+    height: 66px;
+    fill: none;
+    stroke-width: .5px;
+    stroke: black;
+}
+
+.marketTitle text {
+    font-size: 2em;
+}
+
+.marketEvents {
+    padding: 75px 0;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.event {
+    text-align: center;
+    flex-basis: 33%;
+}
+
+.date {
+    font-size: 12px;
+}
+
+.offsetButton {
+    position: relative;
+    transform: translateY(-40px)
+}
+
+.button {
+    width: 140px;
+    padding: 20px;
+    background-color: white;
+    font-family: apercuMono;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: background-color .33s, color .33s;
+}
+
+.button:hover {
+    background-color: black;
+    color: white
+}
+
+
+
+
+/* End Events */
+/* Start of Adress */
+
+
+
+
+.dashBorder {
+    background-image: 
+        linear-gradient(90deg, black 12px, transparent 12px), 
+        linear-gradient(180deg, black 12px, transparent 12px), 
+        linear-gradient(270deg, black 12px, transparent 12px),
+        linear-gradient(360deg, black 12px, transparent 12px);
+    background-repeat: repeat-x, repeat-y, repeat-x, repeat-y;
+    background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+    background-size: 24px 1px, 1px 24px, 24px 1px, 1px 24px;
+    animation: dashBorder .4s linear infinite;
+    animation-play-state: paused;
+}
+
+.dashBorder:hover {
+    animation-play-state: running;
+}
+
+#address {
+    height: 400px;
+}
+
+.adressItem {
+    font-size: 1.9em;
+    line-height: 85px;
+    text-align: center;
+    object-fit: cover;
+    width: 45%;
+    height: 352px;
+}
+
+.adressItem h1 {
+    max-width: 385px;
+}
+
+.adressItem img {
+    width: 99.5%;
+    height: 350px;
+    object-fit: cover;
+}
+
+
+
+
+/* End of Adress */
+/* Start of Contact */
+
+
+
+
+.hashBorder {
+    background-image:
+        repeating-linear-gradient(-74deg,rgba(0,0,0,.2),rgba(0,0,0,.2) 1px,transparent 1px,transparent 4px),
+        repeating-linear-gradient(-74deg,rgba(0,0,0,.2),rgba(0,0,0,.2) 1px,transparent 1px,transparent 4px);
+    background-position: 0 0, 0 100%;
+    background-size: 100% 12px, 100% 12px;
+    background-repeat: no-repeat;
+}
+
+.interesting {
+    padding: 60px;
+    margin-top: 70px;
+    margin-bottom: 60px;
+}
+
+.interesting h1 {
+    margin-top: 0;
+    font-size: 2.9em;
+}
+
+.interesting .button {
+    padding: 17px;
+}
+
+.contactItem {
+    flex-basis: 29%;
+    flex-flow: column nowrap;
+    height: 200px;
+}
+
+.contactItem svg {
+    width: 30px;
+    height: 30px;
+}
+
+.contactItem p {
+    margin-bottom: 0;
+    font-size: .9em;
+    text-align: center;
+}
+
+.newsletter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 60px;
+    margin-bottom: 15px;
+}
+
+.newsletter h2 {
+    font-family: apercuMono;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 30px 60px;
+}
+
+.emailHolder {
+    display: flex;
+    max-width: 1000px;
+    width: 40%;
+    height: 50px;
+    margin: 30px 60px;;
+    border: 1px solid black;
+}
+
+.emailHolder input {
+    border: none;
+    width: 90%;
+    font-family: apercuMono;
+    font-size: .9em;
+    margin: 0 30px;
+}
+
+.emailHolder input::placeholder {
+    color: black;
+}
+
+.emailHolder::after {
+    content: "\21E3";
+    transform: rotate(-90deg);
+    scale: 1.75;
+    cursor: pointer;
+}
+
+#finePrint {
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: auto 1fr auto 1fr auto 8fr auto;
+    grid-template-rows: auto;
+    grid-template-areas: "a . b . c . d";
+    font-size: .9em;
+}
+
+.a {
+    grid-area: a;
+}
+
+.b {
+    grid-area: b;
+}
+
+.c {
+    grid-area: c;
+}
+
+.d {
+    grid-area: d;
+}
+
+#finePrint p {
+    font-family: apercuRegular;
+    margin: 15px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.strike {
+    text-decoration: line-through;
+}
+
+
+
+
+/* End of Contact */
+/* MOBILE DISPLAY */
+
+
+
+
+@media only screen and (max-width: 768px) {
+    
+
+
+    .logo {
+        margin: 30px;
+    }
+
+    #sidebar {
+        visibility: hidden;
+    }
+
+    #hamburger {
+        position: fixed;
+        right: 30px;
+        top: 45px;
+        height: 30px;
+        width: 30px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-around;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    #hamburger div {
+        width: 100%;
+        height: 1px;
+        background: black;
+    }
+
+    .title {
+        font-size: 35px;
+        line-height: 43px;
+        padding: 300px 30px 40px;
+        margin: 0;
+    }
+
+    .imax {
+        width: 100%;
+        height: 95vh;
+        object-fit:cover;
+    }
+
+
+
+
+    .jumboTitle {
+        font-size: 60px;
+        line-height: 60px;
+        padding: 90px 30px;
+    }
+
+    #aboutContainer {
+        width: 100%;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .aboutTile {
+        width: 93%;
+    }
+
+    .aboutTile img {
+        height: 65vh;
+        width: 90vw;
+    }
+
+    .aboutTile p {
+        margin: 30px auto;
+    }
+
+
+
+
+    .marketTitle {
+        width: 100%;
+        flex-flow: column nowrap;
+        margin: 60px auto;
+    }
+
+    .marketTitle h1 {
+        font-size: 60px;
+    }
+
+    .marketEvents {
+        width: 100%;
+        flex-flow: column nowrap;
+        background-image: none;
+        padding: 0;
+    }
+
+    .marketEvents :nth-child(odd)[class=event] {
+    background-image: 
+        linear-gradient(90deg, black 50%, transparent 50%),
+        linear-gradient(90deg, black 50%, transparent 50%),
+        linear-gradient(90deg, black 50%, transparent 50%),
+        linear-gradient(90deg, black 50%, transparent 50%);
+    background-size:24px 1px, 24px 1px, 24px 1px, 24px 1px;
+    background-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
+    background-position: 0 0, 0 14px, 0 100%, 0 calc(100% - 14px);
+    }
+
+    #events {
+        width: 100%;
+        padding: 60px;
+        box-sizing: border-box;
+        margin: 0;
+    }
+
+    .offsetButton::before {
+        content:"";
+        height: 60px;
+        width: 100%;
+    }
+
+    .event {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 60px;
+    }
+
+    .offsetButton {
+        position: absolute;
+        left: 0%;
+        transform: none;
+        width: 100vw;
+        flex-direction: column;
+    }
+
+    .button {
+        width: 85vw;
+        margin: 0 auto;
+    }
+
+
+    
+
+    #adress {
+        width: 100%;
+        flex-flow: column nowrap;
+        margin-top: 120px;
+    }
+
+    .adressItem {
+        width: 90%;
+        height: unset;
+    }
+
+    .adressItem h1 {
+        font-size: 40px;
+        line-height: 1.325;
+        margin: 60px;
+    }
+
+    #adress :nth-child(2) {
+        visibility: hidden;
+        position: absolute;
+    }
+
+
+
+
+    .interesting {
+        width: 90vw;
+        margin: 30px auto 45px;
+        padding: 45px 0;
+        justify-content: center;
+    }
+
+    .interesting h1 {
+        font-size: 24px;
+        line-height: 27px;
+    }
+
+    .contactMedia {
+        flex-flow: column nowrap;
+        width: 100%;
+    }
+
+    .contactItem {
+        box-sizing: border-box;
+        width: 90vw;
+        padding: 30px;
+        margin: 15px auto;
+    }
+
+    .soloCenter {
+        width: 90vw;
+        margin: 2.5% auto;
+    }
+
+
+
+}
