@@ -5,10 +5,15 @@
     --yellow: #ffb400;
 }
 
+html {
+    width: 100%;
+}
+
 body {
     margin: 0;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
+    width: 100%;
 }
 
 body::-webkit-scrollbar { 
@@ -23,6 +28,7 @@ a {
 
 #main {
     overflow-y: visible;
+    width: 100%;
 }
 
 ::selection {
@@ -545,7 +551,10 @@ p {
 
 @media only screen and (max-width: 768px) {
     
-
+    * {
+        justify-content: center;
+        align-items: center;
+    }
 
     .logo {
         margin: 30px;
@@ -553,11 +562,12 @@ p {
 
     #sidebar {
         visibility: hidden;
+        position: absolute;
     }
 
     #hamburger {
         position: fixed;
-        right: 30px;
+        right: 45px;
         top: 45px;
         height: 30px;
         width: 30px;
@@ -623,6 +633,7 @@ p {
         width: 100%;
         flex-flow: column nowrap;
         margin: 60px auto;
+        text-align: center;
     }
 
     .marketTitle h1 {
@@ -675,7 +686,7 @@ p {
     }
 
     .button {
-        width: 85vw;
+        width: 80vw;
         margin: 0 auto;
     }
 
@@ -712,6 +723,7 @@ p {
         margin: 30px auto 45px;
         padding: 45px 0;
         justify-content: center;
+        text-align: center;
     }
 
     .interesting h1 {
@@ -736,6 +748,8 @@ p {
         margin: 2.5% auto;
     }
 
-
+    .emailHolder {
+        visibility: hidden;
+    }
 
 }
